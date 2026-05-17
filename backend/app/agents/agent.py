@@ -6,6 +6,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, BaseMessage
 import structlog
 import os
+os.environ["LANGCHAIN_TRACING_V2"] = os.getenv("LANGCHAIN_TRACING_V2", "false")
+os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
+os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT", "market-intelligence")
 
 from backend.app.tools.web_scraper_tool import web_scraper_tool
 from backend.app.tools.news_search_tool import news_search_tool
